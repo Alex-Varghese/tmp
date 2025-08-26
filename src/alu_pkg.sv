@@ -1,7 +1,10 @@
 package alu_pkg;
 				import std::*;
 				import uvm_pkg::*;		
-			`include "define.sv"	
+			//`uvm_analysis_imp_decl(_active_mon)
+				//`uvm_analysis_imp_decl(_passive_mon)
+
+				`include "define.sv"	
   	`include "uvm_macros.svh"
   	`include "alu_sequence_item.sv"
 	`include "alu_sequence.sv"

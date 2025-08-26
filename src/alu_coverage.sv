@@ -1,6 +1,12 @@
-`uvm_analysis_imp_decl(_active_mon)
-`uvm_analysis_imp_decl(_passive_mon)
-
+//`uvm_analysis_imp_decl(_active_mon)
+//`uvm_analysis_imp_decl(_passive_mon)
+/*
+`ifndef ALU_COVERAGE_IMP_DECLS
+`define ALU_COVERAGE_IMP_DECLS
+	  `uvm_analysis_imp_decl(_active_mon)
+	  `uvm_analysis_imp_decl(_passive_mon)
+`endif
+*/
 class alu_coverage extends uvm_component;
 	real driver_coverage, monitor_coverage;
     `uvm_component_utils(alu_coverage)

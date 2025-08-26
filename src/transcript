@@ -1,0 +1,56 @@
+# vsim -c top 
+# Start time: 17:23:39 on Aug 26,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.uvm_pkg(fast)
+# Loading work.top_sv_unit(fast)
+# ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
+# This also means that later if you turn on UVM-aware debugging your debug simulations may have
+# different random seeds from your non-debug simulations.
+# Loading work.top(fast)
+# Loading work.alu_interface(fast)
+# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dpi_get_next_arg_c' in DPI C/C++ source files.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
+# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dpi_get_tool_name_c' in DPI C/C++ source files.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
+# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dpi_get_tool_version_c' in DPI C/C++ source files.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
+# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dpi_regcomp' in DPI C/C++ source files.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
+# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dpi_regexec' in DPI C/C++ source files.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
+# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dpi_regfree' in DPI C/C++ source files.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
+# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dump_re_cache' in DPI C/C++ source files.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
+# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_glob_to_re' in DPI C/C++ source files.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
+# ** Fatal: (vsim-160) /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/dpi/uvm_svcmd_dpi.svh(27): Null foreign function pointer encountered when calling 'uvm_dpi_get_next_arg_c'
+#    Time: 0 ns  Iteration: 0  Process: /uvm_pkg/#INITIAL#619 File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/dpi/uvm_svcmd_dpi.svh
+# Fatal error in Module uvm_pkg at /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/dpi/uvm_svcmd_dpi.svh line 27
+# 
+# HDL call sequence:
+# Stopped at /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/dpi/uvm_svcmd_dpi.svh 27 Module uvm_pkg
+# called from  /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/dpi/uvm_svcmd_dpi.svh 32 Module uvm_pkg
+# called from  /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/base/uvm_cmdline_processor.svh 245 Function uvm_pkg/uvm_cmdline_processor::new
+# called from  /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/base/uvm_cmdline_processor.svh 61 Function uvm_pkg/uvm_cmdline_processor::get_inst
+# called from  /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/base/uvm_root.svh 306 Function uvm_pkg/uvm_root::new
+# called from  /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/base/uvm_root.svh 286 Function uvm_pkg/uvm_root::get
+# called from  /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/base/uvm_root.svh 246 Module uvm_pkg
+# 
+# End time: 17:23:55 on Aug 26,2025, Elapsed time: 0:00:16
+# Errors: 2, Warnings: 8
