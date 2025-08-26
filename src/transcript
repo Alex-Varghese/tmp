@@ -1,0 +1,319 @@
+# vsim -c top 
+# Start time: 18:54:39 on Aug 26,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: top.sv(23): (vopt-2241) Connection width does not match width of port 'RES'. The port definition is at: alu.v(1).
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.alu_intf(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.alu_pkg(fast)
+# Loading work.top_sv_unit(fast)
+# Loading work.top(fast)
+# Loading work.alu_intf(fast)
+# Loading work.alu_assertion(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test regress_test...
+# ---------------------------------------------------------------------
+# Name                         Type                         Size  Value
+# ---------------------------------------------------------------------
+# uvm_test_top                 regress_test                 -     @471 
+#   env                        alu_env                      -     @502 
+#     agt_act                  alu_agent_active             -     @516 
+#       drv                    alu_driver                   -     @556 
+#         rsp_port             uvm_analysis_port            -     @571 
+#         seq_item_port        uvm_seq_item_pull_port       -     @563 
+#       mon_act                alu_monitor_active           -     @688 
+#         item_collected_port  uvm_analysis_port            -     @696 
+#       seqr                   alu_sequencer                -     @579 
+#         rsp_export           uvm_analysis_export          -     @586 
+#         seq_item_export      uvm_seq_item_pull_imp        -     @680 
+#         arbitration_queue    array                        0     -    
+#         lock_queue           array                        0     -    
+#         num_last_reqs        integral                     32    'd1  
+#         num_last_rsps        integral                     32    'd1  
+#     agt_pass                 alu_agent_passive            -     @523 
+#       mon_pass               alu_monitor_passive          -     @711 
+#         item_collected_port  uvm_analysis_port            -     @718 
+#     cov                      alu_coverage                 -     @540 
+#       analysis_imp           uvm_analysis_imp             -     @547 
+#       mon_act_cg_port        uvm_analysis_imp_mon_act_cg  -     @727 
+#     scb                      alu_scoreboard               -     @533 
+#       item_act_port          uvm_analysis_imp_mon_act     -     @736 
+#       item_pass_port         uvm_analysis_imp_mon_pass    -     @744 
+# ---------------------------------------------------------------------
+# UVM_INFO driver.sv(38) @ 5: uvm_test_top.env.agt_act.drv [alu_driver] 
+# Driver Reset: M:1 |cmd:1 |valid:11 |OPA:45 |OPB:167 
+# 
+# UVM_INFO monitor.sv(104) @ 25: uvm_test_top.env.agt_act.mon_act [alu_monitor_active] 
+# Monitor active: M:0 |cmd:0 |valid:0 |OPA:0 |OPB:0 |CE:0 |CIN:0 
+# 
+# UVM_INFO monitor.sv(48) @ 35: uvm_test_top.env.agt_pass.mon_pass [alu_monitor_passive] 
+# Monitor passive: M:0 |cmd:0 |valid:0 |OPA:0 |OPB:0 |CE:0 |CIN:0 
+# 	   RES:z |ERR:z |OFLOW:z |COUT:z |EGL:zzz 
+# 
+# ---------------------------------------SCOREBOARD CHECK---------------------------------------
+# ======================================Total no of transaction======================================== 
+# ============================================== 1 ====================================================
+# ======================================Match of 1 out of 1==========================================
+# 
+# UVM_INFO driver.sv(54) @ 35: uvm_test_top.env.agt_act.drv [alu_driver] 
+# Driver: M:0 |cmd:6 |valid:1 |OPA:36 |OPB:140 |CE:1
+# 
+# ** Info: pass
+#    Time: 35 ns Started: 25 ns  Scope: top.intf.ASSERT.Clk_enable File: assertion.sv Line: 34
+# ** Info: pass
+#    Time: 45 ns Started: 35 ns  Scope: top.intf.ASSERT.Clk_enable File: assertion.sv Line: 34
+# UVM_INFO monitor.sv(104) @ 75: uvm_test_top.env.agt_act.mon_act [alu_monitor_active] 
+# Monitor active: M:0 |cmd:6 |valid:1 |OPA:36 |OPB:140 |CE:1 |CIN:1 
+# 
+# UVM_INFO monitor.sv(48) @ 85: uvm_test_top.env.agt_pass.mon_pass [alu_monitor_passive] 
+# Monitor passive: M:0 |cmd:6 |valid:1 |OPA:36 |OPB:140 |CE:1 |CIN:1 
+# 	   RES:z |ERR:z |OFLOW:z |COUT:z |EGL:zzz 
+# 
+# ---------------------------------------SCOREBOARD CHECK---------------------------------------
+# UVM_ERROR scoreboard.sv(196) @ 85: uvm_test_top.env.scb [alu_scoreboard] FAIL: RES Mismatch! | Expected: 219 (db) | Actual: z (z)
+# UVM_INFO scoreboard.sv(246) @ 85: uvm_test_top.env.scb [alu_scoreboard] OVERALL RESULT: TRANSACTION FAILED
+# ======================================Total no of transaction======================================== 
+# ============================================== 2 ====================================================
+# ======================================Match of 1 out of 2==========================================
+# 
+# UVM_INFO driver.sv(54) @ 85: uvm_test_top.env.agt_act.drv [alu_driver] 
+# Driver: M:1 |cmd:12 |valid:0 |OPA:234 |OPB:254 |CE:1
+# 
+# UVM_INFO monitor.sv(104) @ 125: uvm_test_top.env.agt_act.mon_act [alu_monitor_active] 
+# Monitor active: M:1 |cmd:12 |valid:0 |OPA:234 |OPB:254 |CE:1 |CIN:1 
+# 
+# UVM_INFO monitor.sv(48) @ 135: uvm_test_top.env.agt_pass.mon_pass [alu_monitor_passive] 
+# Monitor passive: M:1 |cmd:12 |valid:0 |OPA:234 |OPB:254 |CE:1 |CIN:1 
+# 	   RES:z |ERR:z |OFLOW:z |COUT:z |EGL:zzz 
+# 
+# ---------------------------------------SCOREBOARD CHECK---------------------------------------
+# UVM_ERROR scoreboard.sv(217) @ 135: uvm_test_top.env.scb [alu_scoreboard] FAIL: ERR Mismatch! | Expected: 1 | Actual: z
+# UVM_INFO scoreboard.sv(246) @ 135: uvm_test_top.env.scb [alu_scoreboard] OVERALL RESULT: TRANSACTION FAILED
+# ======================================Total no of transaction======================================== 
+# ============================================== 3 ====================================================
+# ======================================Match of 1 out of 3==========================================
+# 
+# UVM_INFO driver.sv(54) @ 135: uvm_test_top.env.agt_act.drv [alu_driver] 
+# Driver: M:0 |cmd:7 |valid:1 |OPA:105 |OPB:139 |CE:1
+# 
+# UVM_INFO monitor.sv(104) @ 175: uvm_test_top.env.agt_act.mon_act [alu_monitor_active] 
+# Monitor active: M:0 |cmd:7 |valid:1 |OPA:105 |OPB:139 |CE:1 |CIN:0 
+# 
+# UVM_INFO monitor.sv(48) @ 185: uvm_test_top.env.agt_pass.mon_pass [alu_monitor_passive] 
+# Monitor passive: M:0 |cmd:7 |valid:1 |OPA:105 |OPB:139 |CE:1 |CIN:0 
+# 	   RES:z |ERR:z |OFLOW:z |COUT:z |EGL:zzz 
+# 
+# ---------------------------------------SCOREBOARD CHECK---------------------------------------
+# UVM_ERROR scoreboard.sv(217) @ 185: uvm_test_top.env.scb [alu_scoreboard] FAIL: ERR Mismatch! | Expected: 1 | Actual: z
+# UVM_INFO scoreboard.sv(246) @ 185: uvm_test_top.env.scb [alu_scoreboard] OVERALL RESULT: TRANSACTION FAILED
+# ======================================Total no of transaction======================================== 
+# ============================================== 4 ====================================================
+# ======================================Match of 1 out of 4==========================================
+# 
+# UVM_INFO driver.sv(54) @ 185: uvm_test_top.env.agt_act.drv [alu_driver] 
+# Driver: M:1 |cmd:3 |valid:11 |OPA:62 |OPB:176 |CE:1
+# 
+# ** Info: arrived within 16 clock cycle
+#    Time: 195 ns Started: 145 ns  Scope: top.intf.ASSERT.Input_Invalid_cycle File: assertion.sv Line: 87
+# ** Info: arrived within 16 clock cycle
+#    Time: 195 ns Started: 45 ns  Scope: top.intf.ASSERT.Input_Invalid_cycle File: assertion.sv Line: 87
+# UVM_INFO monitor.sv(104) @ 225: uvm_test_top.env.agt_act.mon_act [alu_monitor_active] 
+# Monitor active: M:1 |cmd:3 |valid:11 |OPA:62 |OPB:176 |CE:1 |CIN:0 
+# 
+# UVM_INFO monitor.sv(48) @ 235: uvm_test_top.env.agt_pass.mon_pass [alu_monitor_passive] 
+# Monitor passive: M:1 |cmd:3 |valid:11 |OPA:62 |OPB:176 |CE:1 |CIN:0 
+# 	   RES:398 |ERR:z |OFLOW:1 |COUT:z |EGL:zzz 
+# 
+# ---------------------------------------SCOREBOARD CHECK---------------------------------------
+# ======================================Total no of transaction======================================== 
+# ============================================== 5 ====================================================
+# ======================================Match of 2 out of 5==========================================
+# 
+# 235 ||First operand sent. Waiting 15 cycles...
+# ...15 cycles remaining...
+# ...14 cycles remaining...
+# ...13 cycles remaining...
+# ...12 cycles remaining...
+# ...11 cycles remaining...
+# ...10 cycles remaining...
+# ...9 cycles remaining...
+# ...8 cycles remaining...
+# ...7 cycles remaining...
+# ...6 cycles remaining...
+# ...5 cycles remaining...
+# ...4 cycles remaining...
+# ...3 cycles remaining...
+# ...2 cycles remaining...
+# ...1 cycles remaining...
+# UVM_INFO driver.sv(83) @ 385: uvm_test_top.env.agt_act.drv [alu_driver] Second operand sent.
+# UVM_INFO driver.sv(92) @ 385: uvm_test_top.env.agt_act.drv [alu_driver] 
+# Driver: M:1 |cmd:0 |valid:10 |OPA:217 |OPB:74 |CE:1 |CIN:0
+# 
+# UVM_INFO monitor.sv(104) @ 395: uvm_test_top.env.agt_act.mon_act [alu_monitor_active] 
+# Monitor active: M:1 |cmd:0 |valid:11 |OPA:217 |OPB:74 |CE:1 |CIN:0 
+# 
+# ** Info: arrived within 16 clock cycle
+#    Time: 395 ns Started: 245 ns  Scope: top.intf.ASSERT.Input_Invalid_cycle File: assertion.sv Line: 87
+# UVM_INFO monitor.sv(48) @ 405: uvm_test_top.env.agt_pass.mon_pass [alu_monitor_passive] 
+# Monitor passive: M:1 |cmd:0 |valid:11 |OPA:217 |OPB:74 |CE:1 |CIN:0 
+# 	   RES:291 |ERR:z |OFLOW:z |COUT:1 |EGL:zzz 
+# 
+# ---------------------------------------SCOREBOARD CHECK---------------------------------------
+# ======================================Total no of transaction======================================== 
+# ============================================== 6 ====================================================
+# ======================================Match of 3 out of 6==========================================
+# 
+# 425 ||First operand sent. Waiting 3 cycles...
+# ...3 cycles remaining...
+# ...2 cycles remaining...
+# ...1 cycles remaining...
+# UVM_INFO driver.sv(83) @ 455: uvm_test_top.env.agt_act.drv [alu_driver] Second operand sent.
+# UVM_INFO driver.sv(92) @ 455: uvm_test_top.env.agt_act.drv [alu_driver] 
+# Driver: M:1 |cmd:1 |valid:1 |OPA:234 |OPB:10 |CE:1 |CIN:1
+# 
+# UVM_INFO monitor.sv(104) @ 465: uvm_test_top.env.agt_act.mon_act [alu_monitor_active] 
+# Monitor active: M:1 |cmd:1 |valid:11 |OPA:234 |OPB:10 |CE:1 |CIN:1 
+# 
+# ** Error: Invalid input valid for operand B
+#    Time: 465 ns Started: 465 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Info: arrived within 16 clock cycle
+#    Time: 465 ns Started: 435 ns  Scope: top.intf.ASSERT.Input_Invalid_cycle File: assertion.sv Line: 87
+# UVM_INFO monitor.sv(48) @ 475: uvm_test_top.env.agt_pass.mon_pass [alu_monitor_passive] 
+# Monitor passive: M:1 |cmd:1 |valid:11 |OPA:234 |OPB:10 |CE:1 |CIN:1 
+# 	   RES:224 |ERR:z |OFLOW:0 |COUT:z |EGL:zzz 
+# 
+# ---------------------------------------SCOREBOARD CHECK---------------------------------------
+# ======================================Total no of transaction======================================== 
+# ============================================== 7 ====================================================
+# ======================================Match of 4 out of 7==========================================
+# 
+# ** Error: Invalid input valid for operand B
+#    Time: 475 ns Started: 475 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 485 ns Started: 485 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# UVM_INFO driver.sv(105) @ 495: uvm_test_top.env.agt_act.drv [alu_driver] Driver: Intentionally causing a timeout
+# ** Error: Invalid input valid for operand B
+#    Time: 495 ns Started: 495 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 505 ns Started: 505 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 515 ns Started: 515 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 525 ns Started: 525 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 535 ns Started: 535 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 545 ns Started: 545 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 555 ns Started: 555 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 565 ns Started: 565 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 575 ns Started: 575 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 585 ns Started: 585 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 595 ns Started: 595 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 605 ns Started: 605 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 615 ns Started: 615 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 625 ns Started: 625 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 635 ns Started: 635 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 645 ns Started: 645 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 655 ns Started: 655 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# ** Error: Invalid input valid for operand B
+#    Time: 665 ns Started: 665 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# UVM_ERROR monitor.sv(32) @ 675: uvm_test_top.env.agt_pass.mon_pass [MON_TIMEOUT] Monitor timed out waiting for INP_VALID==2'b11
+# UVM_ERROR monitor.sv(88) @ 675: uvm_test_top.env.agt_act.mon_act [MON_TIMEOUT] Monitor timed out waiting for INP_VALID==2'b11
+# UVM_INFO monitor.sv(104) @ 675: uvm_test_top.env.agt_act.mon_act [alu_monitor_active] 
+# Monitor active: M:1 |cmd:1 |valid:1 |OPA:234 |OPB:10 |CE:1 |CIN:1 
+# 
+# ** Error: Invalid input valid for operand B
+#    Time: 675 ns Started: 675 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# UVM_INFO monitor.sv(48) @ 685: uvm_test_top.env.agt_pass.mon_pass [alu_monitor_passive] 
+# Monitor passive: M:1 |cmd:1 |valid:1 |OPA:234 |OPB:10 |CE:1 |CIN:1 
+# 	   RES:224 |ERR:z |OFLOW:0 |COUT:z |EGL:zzz 
+# 
+# ---------------------------------------SCOREBOARD CHECK---------------------------------------
+# UVM_ERROR scoreboard.sv(196) @ 685: uvm_test_top.env.scb [alu_scoreboard] FAIL: RES Mismatch! | Expected: z (z) | Actual: 224 (e0)
+# UVM_ERROR scoreboard.sv(210) @ 685: uvm_test_top.env.scb [alu_scoreboard] FAIL: OFLOW Mismatch! | Expected: z | Actual: 0
+# UVM_ERROR scoreboard.sv(217) @ 685: uvm_test_top.env.scb [alu_scoreboard] FAIL: ERR Mismatch! | Expected: 1 | Actual: z
+# UVM_INFO scoreboard.sv(246) @ 685: uvm_test_top.env.scb [alu_scoreboard] OVERALL RESULT: TRANSACTION FAILED
+# ======================================Total no of transaction======================================== 
+# ============================================== 8 ====================================================
+# ======================================Match of 4 out of 8==========================================
+# 
+# ** Error: Invalid input valid for operand B
+#    Time: 685 ns Started: 685 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# UVM_INFO driver.sv(108) @ 695: uvm_test_top.env.agt_act.drv [alu_driver] 
+# Driver: M:1 |cmd:1 |valid:11 |OPA:234 |OPB:188 |CE:1
+# 
+# ** Error: Invalid input valid for operand B
+#    Time: 695 ns Started: 695 ns  Scope: top.intf.ASSERT.Input_Valid_OPB File: assertion.sv Line: 122
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 705: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO coverage.sv(113) @ 705: uvm_test_top.env.cov [alu_coverage] Input Coverage ------> 54.93%,
+# UVM_INFO coverage.sv(114) @ 705: uvm_test_top.env.cov [alu_coverage] Output Coverage ------> 21.48%
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   37
+# UVM_WARNING :    0
+# UVM_ERROR :    8
+# UVM_FATAL :    0
+# ** Report counts by id
+# [MON_TIMEOUT]     2
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [alu_coverage]     2
+# [alu_driver]    11
+# [alu_monitor_active]     8
+# [alu_monitor_passive]     8
+# [alu_scoreboard]    10
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 705 ns  Iteration: 67  Instance: /top
+# End time: 18:54:47 on Aug 26,2025, Elapsed time: 0:00:08
+# Errors: 24, Warnings: 1

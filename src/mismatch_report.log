@@ -1,0 +1,296 @@
+------------------- MISMATCH FOUND @ 85 -------------------
+DRIVER Transaction (Input):
+------------------------------------------------
+Name           Type           Size  Value       
+------------------------------------------------
+item           sequence_item  -     @816        
+  OPA          integral       8     'h24        
+  OPB          integral       8     'h8c        
+  CMD          integral       4     'h6         
+  INP_VALID    integral       2     'h1         
+  CIN          integral       1     'h1         
+  CE           integral       1     'h1         
+  MODE         integral       1     'h0         
+  OFLOW        integral       1     'h0X        
+  COUT         integral       1     'h0X        
+  E            integral       1     'h0X        
+  G            integral       1     'h0X        
+  L            integral       1     'h0X        
+  ERR          integral       1     'h0X        
+  RES          integral       9     'h0Xxx      
+  SCB_RST      integral       1     'h0         
+  op_delivery  op_delivery_e  32    SINGLE_CYCLE
+------------------------------------------------
+
+
+PREDICTED Transaction (Expected Output):
+------------------------------------------------
+Name           Type           Size  Value       
+------------------------------------------------
+sequence_item  sequence_item  -     @820        
+  OPA          integral       8     'h24        
+  OPB          integral       8     'h8c        
+  CMD          integral       4     'h6         
+  INP_VALID    integral       2     'h1         
+  CIN          integral       1     'h1         
+  CE           integral       1     'h1         
+  MODE         integral       1     'h0         
+  OFLOW        integral       1     'h0X        
+  COUT         integral       1     'h0X        
+  E            integral       1     'h0X        
+  G            integral       1     'h0X        
+  L            integral       1     'h0X        
+  ERR          integral       1     'h0X        
+  RES          integral       9     'hdb        
+  SCB_RST      integral       1     'h0         
+  op_delivery  op_delivery_e  32    SINGLE_CYCLE
+------------------------------------------------
+
+
+MONITOR Transaction (Actual Output):
+------------------------------------------------
+Name           Type           Size  Value       
+------------------------------------------------
+item           sequence_item  -     @812        
+  OPA          integral       8     'h0xx       
+  OPB          integral       8     'h0xx       
+  CMD          integral       4     'h0x        
+  INP_VALID    integral       2     'h0X        
+  CIN          integral       1     'h0X        
+  CE           integral       1     'h0X        
+  MODE         integral       1     'h0X        
+  OFLOW        integral       1     'h0X        
+  COUT         integral       1     'h0X        
+  E            integral       1     'h0X        
+  G            integral       1     'h0X        
+  L            integral       1     'h0X        
+  ERR          integral       1     'h0X        
+  RES          integral       9     'h0Xxx      
+  SCB_RST      integral       1     'h0         
+  op_delivery  op_delivery_e  32    SINGLE_CYCLE
+------------------------------------------------
+
+------------------------------------------------------------------
+
+------------------- MISMATCH FOUND @ 135 -------------------
+DRIVER Transaction (Input):
+------------------------------------------------
+Name           Type           Size  Value       
+------------------------------------------------
+item           sequence_item  -     @832        
+  OPA          integral       8     'hea        
+  OPB          integral       8     'hfe        
+  CMD          integral       4     'hc         
+  INP_VALID    integral       2     'h0         
+  CIN          integral       1     'h1         
+  CE           integral       1     'h1         
+  MODE         integral       1     'h1         
+  OFLOW        integral       1     'h0X        
+  COUT         integral       1     'h0X        
+  E            integral       1     'h0X        
+  G            integral       1     'h0X        
+  L            integral       1     'h0X        
+  ERR          integral       1     'h0X        
+  RES          integral       9     'h0Xxx      
+  SCB_RST      integral       1     'h0         
+  op_delivery  op_delivery_e  32    SINGLE_CYCLE
+------------------------------------------------
+
+
+PREDICTED Transaction (Expected Output):
+------------------------------------------------
+Name           Type           Size  Value       
+------------------------------------------------
+sequence_item  sequence_item  -     @840        
+  OPA          integral       8     'hea        
+  OPB          integral       8     'hfe        
+  CMD          integral       4     'hc         
+  INP_VALID    integral       2     'h0         
+  CIN          integral       1     'h1         
+  CE           integral       1     'h1         
+  MODE         integral       1     'h1         
+  OFLOW        integral       1     'h0X        
+  COUT         integral       1     'h0X        
+  E            integral       1     'h0X        
+  G            integral       1     'h0X        
+  L            integral       1     'h0X        
+  ERR          integral       1     'h1         
+  RES          integral       9     'h0Xxx      
+  SCB_RST      integral       1     'h0         
+  op_delivery  op_delivery_e  32    SINGLE_CYCLE
+------------------------------------------------
+
+
+MONITOR Transaction (Actual Output):
+------------------------------------------------
+Name           Type           Size  Value       
+------------------------------------------------
+item           sequence_item  -     @836        
+  OPA          integral       8     'h0xx       
+  OPB          integral       8     'h0xx       
+  CMD          integral       4     'h0x        
+  INP_VALID    integral       2     'h0X        
+  CIN          integral       1     'h0X        
+  CE           integral       1     'h0X        
+  MODE         integral       1     'h0X        
+  OFLOW        integral       1     'h0X        
+  COUT         integral       1     'h0X        
+  E            integral       1     'h0X        
+  G            integral       1     'h0X        
+  L            integral       1     'h0X        
+  ERR          integral       1     'h0X        
+  RES          integral       9     'h0Xxx      
+  SCB_RST      integral       1     'h0         
+  op_delivery  op_delivery_e  32    SINGLE_CYCLE
+------------------------------------------------
+
+------------------------------------------------------------------
+
+------------------- MISMATCH FOUND @ 185 -------------------
+DRIVER Transaction (Input):
+------------------------------------------------
+Name           Type           Size  Value       
+------------------------------------------------
+item           sequence_item  -     @852        
+  OPA          integral       8     'h69        
+  OPB          integral       8     'h8b        
+  CMD          integral       4     'h7         
+  INP_VALID    integral       2     'h1         
+  CIN          integral       1     'h0         
+  CE           integral       1     'h1         
+  MODE         integral       1     'h0         
+  OFLOW        integral       1     'h0X        
+  COUT         integral       1     'h0X        
+  E            integral       1     'h0X        
+  G            integral       1     'h0X        
+  L            integral       1     'h0X        
+  ERR          integral       1     'h0X        
+  RES          integral       9     'h0Xxx      
+  SCB_RST      integral       1     'h0         
+  op_delivery  op_delivery_e  32    SINGLE_CYCLE
+------------------------------------------------
+
+
+PREDICTED Transaction (Expected Output):
+------------------------------------------------
+Name           Type           Size  Value       
+------------------------------------------------
+sequence_item  sequence_item  -     @856        
+  OPA          integral       8     'h69        
+  OPB          integral       8     'h8b        
+  CMD          integral       4     'h7         
+  INP_VALID    integral       2     'h1         
+  CIN          integral       1     'h0         
+  CE           integral       1     'h1         
+  MODE         integral       1     'h0         
+  OFLOW        integral       1     'h0X        
+  COUT         integral       1     'h0X        
+  E            integral       1     'h0X        
+  G            integral       1     'h0X        
+  L            integral       1     'h0X        
+  ERR          integral       1     'h1         
+  RES          integral       9     'h0Xxx      
+  SCB_RST      integral       1     'h0         
+  op_delivery  op_delivery_e  32    SINGLE_CYCLE
+------------------------------------------------
+
+
+MONITOR Transaction (Actual Output):
+------------------------------------------------
+Name           Type           Size  Value       
+------------------------------------------------
+item           sequence_item  -     @848        
+  OPA          integral       8     'h0xx       
+  OPB          integral       8     'h0xx       
+  CMD          integral       4     'h0x        
+  INP_VALID    integral       2     'h0X        
+  CIN          integral       1     'h0X        
+  CE           integral       1     'h0X        
+  MODE         integral       1     'h0X        
+  OFLOW        integral       1     'h0X        
+  COUT         integral       1     'h0X        
+  E            integral       1     'h0X        
+  G            integral       1     'h0X        
+  L            integral       1     'h0X        
+  ERR          integral       1     'h0X        
+  RES          integral       9     'h0Xxx      
+  SCB_RST      integral       1     'h0         
+  op_delivery  op_delivery_e  32    SINGLE_CYCLE
+------------------------------------------------
+
+------------------------------------------------------------------
+
+------------------- MISMATCH FOUND @ 685 -------------------
+DRIVER Transaction (Input):
+------------------------------------------------
+Name           Type           Size  Value       
+------------------------------------------------
+item           sequence_item  -     @920        
+  OPA          integral       8     'hea        
+  OPB          integral       8     'ha         
+  CMD          integral       4     'h1         
+  INP_VALID    integral       2     'h1         
+  CIN          integral       1     'h1         
+  CE           integral       1     'h1         
+  MODE         integral       1     'h1         
+  OFLOW        integral       1     'h0X        
+  COUT         integral       1     'h0X        
+  E            integral       1     'h0X        
+  G            integral       1     'h0X        
+  L            integral       1     'h0X        
+  ERR          integral       1     'h0X        
+  RES          integral       9     'h0Xxx      
+  SCB_RST      integral       1     'h0         
+  op_delivery  op_delivery_e  32    SINGLE_CYCLE
+------------------------------------------------
+
+
+PREDICTED Transaction (Expected Output):
+------------------------------------------------
+Name           Type           Size  Value       
+------------------------------------------------
+sequence_item  sequence_item  -     @928        
+  OPA          integral       8     'hea        
+  OPB          integral       8     'ha         
+  CMD          integral       4     'h1         
+  INP_VALID    integral       2     'h1         
+  CIN          integral       1     'h1         
+  CE           integral       1     'h1         
+  MODE         integral       1     'h1         
+  OFLOW        integral       1     'h0X        
+  COUT         integral       1     'h0X        
+  E            integral       1     'h0X        
+  G            integral       1     'h0X        
+  L            integral       1     'h0X        
+  ERR          integral       1     'h1         
+  RES          integral       9     'h0Xxx      
+  SCB_RST      integral       1     'h0         
+  op_delivery  op_delivery_e  32    SINGLE_CYCLE
+------------------------------------------------
+
+
+MONITOR Transaction (Actual Output):
+------------------------------------------------
+Name           Type           Size  Value       
+------------------------------------------------
+item           sequence_item  -     @916        
+  OPA          integral       8     'h0xx       
+  OPB          integral       8     'h0xx       
+  CMD          integral       4     'h0x        
+  INP_VALID    integral       2     'h0X        
+  CIN          integral       1     'h0X        
+  CE           integral       1     'h0X        
+  MODE         integral       1     'h0X        
+  OFLOW        integral       1     'h0         
+  COUT         integral       1     'h0X        
+  E            integral       1     'h0X        
+  G            integral       1     'h0X        
+  L            integral       1     'h0X        
+  ERR          integral       1     'h0X        
+  RES          integral       9     'he0        
+  SCB_RST      integral       1     'h0         
+  op_delivery  op_delivery_e  32    SINGLE_CYCLE
+------------------------------------------------
+
+------------------------------------------------------------------
+
