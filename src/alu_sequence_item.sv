@@ -10,7 +10,7 @@ class alu_sequence_item extends uvm_sequence_item;
     randc logic [`CMD_WIDTH-1:0]CMD;
     logic [`WIDTH+1:0]RES;
     logic ERR,OFLOW,COUT,G,E,L;
-  
+ /* 
     `uvm_object_utils_begin(alu_sequence_item)
 
     `uvm_field_int(OPA,UVM_ALL_ON | UVM_DEC)
@@ -28,7 +28,9 @@ class alu_sequence_item extends uvm_sequence_item;
     `uvm_field_int(E,UVM_ALL_ON | UVM_DEC)
     `uvm_field_int(L,UVM_ALL_ON | UVM_DEC)
     `uvm_object_utils_end
-  
+ */
+	 `uvm_object_utils(alu_sequence_item)
+
  	 function new(string name = "alu_sequence_item");
    		 super.new(name);
  	 endfunction:new

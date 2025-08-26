@@ -40,6 +40,6 @@ class alu_monitor extends uvm_monitor;
 		      	seq.E = vif.E;
 		      	seq.L = vif.L;
     		    item_collected_port.write(seq);
-    	  end : forever_loop
+    	  end
   	endtask : run_phase
 endclass : alu_monitor

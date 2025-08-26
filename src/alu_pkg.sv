@@ -1,5 +1,7 @@
 package alu_pkg;
-	`include "uvm_pkg.sv"
+				import std::*;
+				import uvm_pkg::*;		
+			`include "define.sv"	
   	`include "uvm_macros.svh"
   	`include "alu_sequence_item.sv"
 	`include "alu_sequence.sv"

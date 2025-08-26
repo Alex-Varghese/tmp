@@ -1,11 +1,13 @@
-`include "uvm_pkg.sv"
-`include "uvm_macros.svh"
 `include "alu_pkg.sv"
+`include "uvm_macros.svh"
 `include "alu_interface.sv"
 `include "design.v"
+
+import uvm_pkg::*;
+
 module top;
-  	import uvm_pkg::*;  
-  	import alu_pkg::*;
+//  	import uvm_pkg::*;  
+//  	import alu_pkg::*;
  
    	bit CLK;
   	bit RESET;

@@ -19,7 +19,7 @@ class alu_driver extends uvm_driver #(alu_sequence_item);
     		      seq_item_port.get_next_item(req);
     		      drive();
     		      seq_item_port.item_done();
-    	    end : forever_loop
+    	    end 
   	  endtask : run_phase
 
   	  virtual task drive();
@@ -37,7 +37,7 @@ class alu_driver extends uvm_driver #(alu_sequence_item);
       		    repeat(2) @(vif.driver_cb);
             	    -> vif.drv_done_e;
       		    repeat(4) @(vif.driver_cb);
-		      end : single_operand
+		      end
     
       	  else if (req.INP_VALID == 2'b11 || req.INP_VALID == 2'b00) begin
       		    vif.OPA <= req.OPA;
@@ -49,22 +49,22 @@ class alu_driver extends uvm_driver #(alu_sequence_item);
       		    vif.CMD <= req.CMD;
         	    `uvm_info("DRIVER","DRIVING TO DUT",UVM_MEDIUM);
       		    req.print();
-          	  if(req.CMD inside{`MUL_INC,`MUL_SHIFT})
+									if(req.CMD inside{`MUL_INC,`MUL_SHIFT}) begin
     			    repeat(3) @(vif.driver_cb);
             		-> vif.drv_done_e;
-  			  end:multiplication
-  			  else begin:other_operation
+					end
+  			  else begin
     			    repeat(2) @(vif.driver_cb);
             		-> vif.drv_done_e;
-  			  end:other_operation
+  			  end
     		  repeat(4) @(vif.driver_cb);
-    	 end : multiple_operand
+    	 end 
 		 else begin
     		  inpvalid_11 = 1'b0;
          for (int count = 0; count < `MAX_WAIT_CYCLE && !inpvalid_11; count++) begin
         		      req.CMD.rand_mode(0);
         		      req.MODE.rand_mode(0);
-				      void'(req.randomize());
+				     			void'(req.randomize());
         		      @(vif.driver_cb);
             	      if (req.INP_VALID == 2'b11) begin
             		      inpvalid_11 = 1'b1;
@@ -80,24 +80,23 @@ class alu_driver extends uvm_driver #(alu_sequence_item);
       				      vif.CMD <= req.CMD;
                 	      `uvm_info("DRIVER","DRIVING TO DUT",UVM_MEDIUM);
       				      req.print();
-              		      if(req.CMD inside{`MUL_INC,`MUL_SHIFT})
+														if(req.CMD inside{`MUL_INC,`MUL_SHIFT}) begin
     					         repeat(3) @(vif.driver_cb);
             			         -> vif.drv_done_e;
-  					      end : multiplication
-  					      else begin:other_operation
+  					      end 
+  					      else begin
     					         repeat(2) @(vif.driver_cb);
             				     -> vif.drv_done_e;
-  					      end:other_operation
+  					      end
             		      repeat(4) @(vif.driver_cb);
             		      break;
-        		      end : INP_VALID_11
+        		      end
         		      else begin
                   	  	   `uvm_info("DRIVER","INP_VALID NOT 11",UVM_MEDIUM);  
 					       `uvm_info("DRIVER",$sformatf("INP_VALID == %0d at cycle = %0d",req.INP_VALID,count+1),UVM_MEDIUM);
         			       req.print();
-        		      end : INP_VALID_not_11
-    		      end : for_loop
-
+        		      end 
+    		      end
 			      if (!inpvalid_11) begin
       			      $display(" INP_VALID NOT 11 WITHIN %0d CLOCK CYCLE", `MAX_WAIT_CYCLE);
             	      vif.OPA <= req.OPA;
@@ -124,7 +123,7 @@ class alu_driver extends uvm_driver #(alu_sequence_item);
             	    `DEC_B : return 1;
             	    default: return 0;
         	    endcase
-    	    end : arithmetic
+    	    end 
     	    else begin
         	    case (req.CMD)
             	    `NOT_A : return 1;
@@ -135,7 +134,7 @@ class alu_driver extends uvm_driver #(alu_sequence_item);
             	    `SHL1_B: return 1;
 				    default: return 0;
         	    endcase
-    	    end : logical
+    	    end 
 	    endfunction : no_of_inputs
 	    
   endclass: alu_driver 

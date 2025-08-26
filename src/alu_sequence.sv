@@ -13,8 +13,8 @@ class alu_sequence extends uvm_sequence#(alu_sequence_item);
             req.randomize();
             send_request(req);
             wait_for_item_done();
-        end:repeat_loop
-  	endtask:body
+        end
+  	endtask
 endclass:alu_sequence
 
 class alu_single_operand_operation extends uvm_sequence#(alu_sequence_item);

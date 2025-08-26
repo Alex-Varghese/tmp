@@ -74,7 +74,7 @@ class alu_scoreboard extends uvm_scoreboard;
               expected.G = 1'bz;
               expected.E = 1'bz;
               expected.L = 1'bz;
-        end : first 
+        end  
         else begin
             expected.RES = prev_RES;
             expected.COUT = prev_COUT;
@@ -115,7 +115,7 @@ class alu_scoreboard extends uvm_scoreboard;
             if(expected.MODE == 1'b1)begin
                 if(expected.INP_VALID == 2'b00)begin
                     expected.ERR = 1'b1;
-                end:INP_VALID_00
+                end
 
                 else if(expected.INP_VALID == 2'b01)begin:INP_VALID_01
                     case(expected.CMD)
@@ -193,8 +193,8 @@ class alu_scoreboard extends uvm_scoreboard;
                                end:mul_shift
                      default : expected.ERR = 1'b1;
                     endcase
-                end:INP_valid_11
-            end:arithmetic
+                end
+            end
             else begin:logical
                 if(expected.INP_VALID == 2'b00)begin:INP_VALID_00
                     expected.ERR = 1'b1;
