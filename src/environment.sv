@@ -27,7 +27,5 @@ class alu_env extends uvm_env;
 		
 		agt_act.mon_act.item_collected_port.connect(cov.mon_act_cg_port);
 		agt_pass.mon_pass.item_collected_port.connect(cov.analysis_export);
-		/* agt.drv.item_collected_port.connect(cov.analysis_export); */
-		/* agt.mon.item_collected_port.connect(cov.mon_cg_port); */
 	endfunction	
 endclass	

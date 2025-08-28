@@ -15,110 +15,82 @@ program alu_assertion(clk,rst,CE,MODE,CMD,INP_VALID,OPA,OPB,CIN,RES,ERR,COUT,OFL
 	input G;
 	input L;
 
-	
-	property alu_unknown;
-		@(posedge clk) disable iff (rst) !($isunknown ({rst,CE,MODE,CMD,INP_VALID,OPA,OPB,CIN}));
+  property rst_check;
+		@(posedge clk) disable iff(!rst)
+				rst |-> ( RES == 'bz && OFLOW == 'bz && COUT == 'bz && ERR == 'bz && G == 'bz && L == 'bz && E == 'bz);
+  endproperty
+  assert property(rst_check)
+	  else $error("Wrong output for rst");
+
+  property alu_not_known;
+    @(posedge clk) !($isunknown({rst,CE,MODE,CMD,INP_VALID,OPA,OPB,CIN}));
+  endproperty
+  assert property(alu_not_known)
+	    else $error("Inputs are x and z type");
+
+	assert property(@(posedge clk) disable iff(CE) !CE |=> RES == $past(RES))
+	    else $error("Output changed on clock when clock enable is 0");
+
+  property both_operands_required_arithmetic;
+    @(posedge clk) disable iff(rst || (!MODE && !((CMD < 4 || CMD > 8) && CMD < 11)))
+    (CE && MODE && ((CMD < 4 || CMD > 8) && (CMD < 11))) |-> (INP_VALID == 2'b11);
 	endproperty
+  assert property(both_operands_required_arithmetic)
+	    else $error("Arithmetic operations requiring two operands are missing input valid 11");
 
-	unknown: assert property(alu_unknown)
-											/* $info("pass"); */
-										else
-											$error("Inputs are unknown %d %d %d %d %d %d %d %d %d",clk,rst,CE,MODE,CMD,INP_VALID,OPA,OPB,CIN);
-
-	rst_assert: assert property(@(posedge clk) ##4 !rst)  // added 4 clock delay for assertion pass
-											/* $info("pass"); */
-										else
-											$info("Reset is asserted");
-
-	Clk_enable: assert property(@(posedge clk) disable iff (rst) !CE |=> (RES === $past(RES)))
-											$info("pass");
-										else
-											$error("Output is not retained, it changed res:%0d | past:%0d ",RES,$past(RES));
-
-	/* sequence delay_16; */
-	/* 	(##[1:16] INP_VALID[1]) or (##[1:16] INP_VALID[0]); */
-			/* ##[1:16] (INP_VALID == 2'b11); */
-	/* endsequence */
-
-	/* property alu_delay; */
-	/* 	@(posedge clk) */
-	/* 	disable iff (rst) */
-	/* 	if(MODE) */
-	/* 		(CE && (CMD inside {[0:3],[8:10]}) && INP_VALID inside {2'b01, 2'b10}) |-> delay_16 */
-	/* 	else */
-	/* 		(CE && (CMD inside {[0:5],12,13}) && INP_VALID inside {2'b01, 2'b10}) |-> delay_16; */
-	/* endproperty */
-	
-	/* Input_Invalid_cycle: assert property(alu_delay) */ 
-	/* 		/1* $info("pass"); *1/ */
-	/* 	else */ 
-	/* 		$error("Timeout: The second operand was not received within 16 cycles."); */
-
-	////
-	/* sequence delay_16; */
-    /* INP_VALID == 2'b11 or (INP_VALID[0] ##[0:16] INP_VALID[1]) or (INP_VALID[1] ##[0:16] INP_VALID[0]); */
-  /* endsequence */
-
-  /* property alu_delay; */
-    /* @(posedge clk) */
-	/* 		disable iff (rst) */
-	/* 		if(MODE) */
-	/* 			CMD inside {[0:3],[8:10]} |-> (CMD inside {[0:3],[8:10]}) throughout delay_16 */
-	/* 		else */
-	/* 			CMD inside {[0:5],12,13} |-> (CMD inside {[0:5],12,13}) throughout delay_16; */
-  /* endproperty */
-
-  /* Input_Invalid_cycle: assert property(alu_delay) */
-	/* 												/1* $info("pass"); *1/ */
-	/* 											else */
-	/* 												$error("Timeout, inputs are not recieved on time"); */
-
-
-	sequence arrives_within_16_cycles;
-		##[1:16] (INP_VALID == 2'b11);
-	endsequence
-
-	property alu_delay;
-		@(posedge clk) disable iff (rst)
-			((INP_VALID == 2'b01 && $past(OPA) != OPA) or (INP_VALID == 2'b10 && $past(OPB) != OPB)) |=> arrives_within_16_cycles;
+	property both_operands_required_logical;
+    @(posedge clk) disable iff(rst || (!MODE && !((CMD < 6 || CMD > 11) && CMD <14)))
+    (CE && !MODE && ((CMD < 6 || CMD > 11) && (CMD < 14))) |-> (INP_VALID == 2'b11);
 	endproperty
+  assert property(both_operands_required_logical)
+	    else $error("Logical operations requiring two operands are missing input valid 11");
 
-	Input_Invalid_cycle: assert property(alu_delay)
-			$info("arrived within 16 clock cycle");
-		else
-			$error("Timeout Violation: The second operand was not received within 16 cycles.");
-	
-	property mode_cmd;
-		@(posedge clk) disable iff (rst)
-			MODE |-> CMD inside {[0:10]} or !MODE |-> CMD inside {[0:13]};
-	endproperty
+	property check_inp_valid_for_01_arithmetic;
+    @(posedge clk) disable iff(rst || (MODE && !(CMD == 5 || CMD == 4)))
+    (CE && MODE && ((CMD == 4) || (CMD == 5))) |-> (INP_VALID == 2'b01 || INP_VALID == 2'b11);
+  endproperty
+  assert property(check_inp_valid_for_01_arithmetic)
+	      else $error("Arithmetic operations requiring operand A only are missing input valid");
 
-	Mode_Cmd_Relation: assert property(mode_cmd)
-		else
-			$error("Invalid mode-command combination");
+  property check_inp_valid_for_10_arithmetic;
+    @(posedge clk) disable iff(rst || (MODE && !(CMD == 6 || CMD == 7)))
+    (CE && MODE && ((CMD == 6) || (CMD == 7))) |-> (INP_VALID == 2'b10 || INP_VALID == 2'b11);
+  endproperty
+	assert property(check_inp_valid_for_10_arithmetic)
+	    else $error("Arithmetic operations requiring operand B only are missing input valid");
 
-	property OPA_valid;
-		@(posedge clk) disable iff (rst)
-			if(MODE)
-				(CMD == `INC_A || CMD == `DEC_A) |-> (INP_VALID == 2'b01)
-			else
-				(CMD == `NOT_A || CMD == `SHL1_A) || CMD == `SHR1_A |-> (INP_VALID == 2'b01);
-	endproperty
 
-	Input_Valid_OPA: assert property(OPA_valid)
-		else
-			$error("Invalid input valid for operand A");
+  property check_inp_valid_for_01_logical;
+    @(posedge clk) disable iff(rst || (!MODE && !(CMD == 6 || CMD == 8 || CMD == 9)))
+    (CE && !MODE && ((CMD == 6) || (CMD == 8) || (CMD == 9))) |-> (INP_VALID == 2'b01 || INP_VALID == 2'b11);
+  endproperty
+  assert property(check_inp_valid_for_01_logical)
+	    else $error("Logical operations requiring operand A only are missing input valid");
 
-	property OPB_valid;
-		@(posedge clk) disable iff (rst)
-			if(MODE)
-				(CMD == (`INC_B || CMD == `DEC_B)) |-> (INP_VALID == 2'b10)
-			else
-				(CMD == (`NOT_B || CMD == `SHL1_B || CMD == `SHR1_B)) |-> (INP_VALID == 2'b10);				
-	endproperty
-		
-	Input_Valid_OPB: assert property(OPB_valid)
-		else
-			$error("Invalid input valid for operand B");
+  property check_inp_valid_for_10_logical;
+    @(posedge clk) disable iff(rst || (!MODE && !(CMD == 7 || CMD == 10 || CMD == 11)))
+    (CE && !MODE && ((CMD == 7) || (CMD == 10) || (CMD == 11))) |-> (INP_VALID == 2'b10 || INP_VALID == 2'b11);
+  endproperty
+  assert property(check_inp_valid_for_10_logical)
+	    else $error("Logical operations requiring operand B only are missing input valid");
+
+  property rol_ror_err_check;
+    @(posedge clk) disable iff(rst || (!MODE && !(CMD == 12 || CMD == 13)) && (OPB[7:4] == 0))
+    (CE && MODE == 0 && (CMD == 12 || CMD == 13)) |-> ERR == 1;
+  endproperty
+  assert property(rol_ror_err_check)
+	    else $error("ROL/ROR did not raise ERR");
+
+  property cmp_output_check;
+    @(posedge clk) disable iff(rst || !(MODE && CMD == 8))
+    (CE && MODE && CMD == 8 && INP_VALID == 2'b11) |-> (
+        (OPA > OPB && G == 1 && L == 0 && E == 0) ||
+        (OPA < OPB && G == 0 && L == 1 && E == 0) ||
+        (OPA == OPB && G == 0 && L == 0 && E == 1)
+    );
+  endproperty
+  assert property(cmp_output_check)
+	    else $error("Comparator output incorrect for CMP");
+
 
 endprogram	

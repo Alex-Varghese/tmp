@@ -27,8 +27,6 @@ class test extends uvm_test;
 	endfunction
 endclass
 
-//////////////////////////////////////////////////////////////////
-// custom test case
 class custom_test extends test;
 	`uvm_component_utils(custom_test)
 
@@ -49,8 +47,6 @@ class custom_test extends test;
   endtask
 endclass	
 
-////////////////////////////////////////////////////////////////////////
-// arithmetic test case
 class arith_test extends test;
 	`uvm_component_utils(arith_test)
 
@@ -70,8 +66,6 @@ class arith_test extends test;
   endtask
 endclass	
 
-//////////////////////////////////////////////
-// logical test case
 class logical_test extends test;
 	`uvm_component_utils(logical_test)
 
@@ -91,8 +85,6 @@ class logical_test extends test;
   endtask
 endclass	
 
-/////////////////////////////////////////////////
-// error flag test
 class error_test extends test;
 	`uvm_component_utils(error_test)
 
@@ -112,8 +104,6 @@ class error_test extends test;
   endtask
 endclass	
 
-/////////////////////////////////////////////////
-// flag test
 class flag_test extends test;
 	`uvm_component_utils(flag_test)
 
@@ -133,8 +123,6 @@ class flag_test extends test;
   endtask
 endclass	
 
-/////////////////////////////////////////////////
-// 16 clock cycle
 class split_test extends test;
 	`uvm_component_utils(split_test)
 
@@ -153,8 +141,6 @@ class split_test extends test;
 		phase.drop_objection(this);
   endtask
 endclass	
-////////////////////////////////////////////////////////////////////////
-// regress
 
 class regress_test extends test;
 	`uvm_component_utils(regress_test)

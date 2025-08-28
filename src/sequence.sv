@@ -16,8 +16,6 @@ class alu_sequence extends uvm_sequence#(sequence_item);
 
 endclass	
 
-////////////////////////////////////////////////////////////////////////
-// custom mode
 class custom extends uvm_sequence#(sequence_item);
 	`uvm_object_utils(custom)
 
@@ -26,6 +24,7 @@ class custom extends uvm_sequence#(sequence_item);
 	endfunction
 
 	virtual task body();
+	  repeat(`no_of_trans) begin
 	/* `uvm_do_with(req,{req.MODE == 1;req.CE == 1;req.CMD inside {[0:3]};req.INP_VALID == 3;}) */
 	/* `uvm_do_with(req,{req.MODE == 1;req.CE == 1;req.CMD inside {[0:3],8,9,10};req.INP_VALID == 3;}) */
 	/* `uvm_do_with(req,{req.MODE == 1;req.CE == 1;req.CMD inside {9,10};req.INP_VALID == 3;req.op_delivery == SINGLE_CYCLE;}) */
@@ -38,13 +37,11 @@ class custom extends uvm_sequence#(sequence_item);
 		else req.INP_VALID == 3;
 
 		req.op_delivery == SINGLE_CYCLE;})
+			end
   endtask 
 
 endclass
-/////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////
-// arithmetic sequence
 class arith extends uvm_sequence#(sequence_item);
 	`uvm_object_utils(arith)
 
@@ -53,6 +50,7 @@ class arith extends uvm_sequence#(sequence_item);
 	endfunction
 
 	virtual task body();
+    repeat(`no_of_trans) begin
 	`uvm_do_with(req, {
 		req.MODE == 1;
 		req.CE == 1;
@@ -66,13 +64,12 @@ class arith extends uvm_sequence#(sequence_item);
 
 		req.op_delivery == SINGLE_CYCLE; 
 		})
+	 end
 /* `uvm_do_with(req,{req.MODE == 1;req.CE == 1;req.CMD inside {[0:3]};req.INP_VALID == 3;req.op_delivery == SINGLE_CYCLE;}) */
   endtask 
 
 endclass	
 
-///////////////////////////////////////////////////////////////
-// logical sequence
 class logical extends uvm_sequence#(sequence_item);
 	`uvm_object_utils(logical)
 
@@ -81,6 +78,7 @@ class logical extends uvm_sequence#(sequence_item);
 	endfunction
 
 	virtual task body();
+    repeat(`no_of_trans) begin
 	`uvm_do_with(req, {
 		req.MODE == 0;
 		req.CE == 1;
@@ -94,12 +92,11 @@ class logical extends uvm_sequence#(sequence_item);
 
 		req.op_delivery == SINGLE_CYCLE;
 		})
+		end
   endtask 
 
 endclass	
 
-///////////////////////////////////////////////////////////////
-// error flag
 class error extends uvm_sequence#(sequence_item);
 	`uvm_object_utils(error)
 
@@ -108,7 +105,7 @@ class error extends uvm_sequence#(sequence_item);
 	endfunction
 
 	virtual task body();
-		// cmd out of range and invalid input valid 
+	    repeat(`no_of_trans) begin
 		`uvm_do_with(req, {
 			req.MODE == 1;
 			req.CMD inside {[4:7],[11:15]}; 
@@ -136,12 +133,11 @@ class error extends uvm_sequence#(sequence_item);
 		else 
 			req.INP_VALID == 2'b00; 
 		})
+		end
 	endtask	
 
 endclass	
 
-///////////////////////////////////////////////////////////////
-// flag check
 class flag extends uvm_sequence#(sequence_item);
 	`uvm_object_utils(flag)
 	
@@ -150,14 +146,14 @@ class flag extends uvm_sequence#(sequence_item);
 	endfunction
 
 	virtual task body();
-		// checking for cout, oflow , E , G and L flags
+    repeat(`no_of_trans) begin
 		`uvm_do_with(req, {
 			req.MODE dist {0:=2,1:=8};
 			
 			if(req.MODE) 
-				req.CMD inside {[0:3],8};     // add, add_cin, sub, sub_cin, cmp
+				req.CMD inside {[0:3],8}; 
 			else
-				req.CMD inside {12,13};       // ROR, ROL (error flags in this case)
+				req.CMD inside {12,13};    
 			
 			if(req.MODE)
 				if(req.CMD == 4 || req.CMD == 5) 
@@ -192,12 +188,10 @@ class flag extends uvm_sequence#(sequence_item);
 		req.CE == 1;
 		req.op_delivery == SINGLE_CYCLE;
 			})
-
+		end
 	endtask	
 endclass	
 
-///////////////////////////////////////////////////////////////
-// Sequence to test split-operand and timeout features
 class split_transaction_seq extends uvm_sequence#(sequence_item);
 	`uvm_object_utils(split_transaction_seq)
 
@@ -206,7 +200,7 @@ class split_transaction_seq extends uvm_sequence#(sequence_item);
 	endfunction
 
 	virtual task body();
-
+    repeat(`no_of_trans) begin
 			`uvm_do_with(req, {
 				req.CE == 1;
 				req.op_delivery == SPLIT_OPA_FIRST;  //SINGLE_CYCLE;
@@ -231,12 +225,10 @@ class split_transaction_seq extends uvm_sequence#(sequence_item);
 				req.INP_VALID inside {1,2,3};
 				req.MODE == 1;
 			})
+			end
 	endtask
-
 endclass
 
-///////////////////////////////////////////
-// regress test
 class regress extends uvm_sequence#(sequence_item);
 	
 	`uvm_object_utils(regress)

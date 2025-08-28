@@ -21,7 +21,6 @@ class  alu_agent_passive extends uvm_agent;
 
 endclass	
 
-//////////////////////////////////////////////////////////
 class  alu_agent_active extends uvm_agent;
 	`uvm_component_utils(alu_agent_active)
 
